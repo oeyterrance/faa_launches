@@ -1,0 +1,12 @@
+#Removes the old docker image
+docker rmi -f 28bd2a1a2d33
+
+#Builds the new docker image
+docker build -t faa_launches:faa_launches /mnt/user/Documents/faa_launches
+
+#Runs the new image in a docker container, removes the log file, and removes the 
+#container (Unraid)
+#!/bin/bash
+: > $(docker inspect --format='{{.LogPath}}' 28bd2a1a2d33)
+docker run --name faa_launches -v /mnt/user/Documents/faa_launches:/app 28bd2a1a2d33
+docker rm faa_launches

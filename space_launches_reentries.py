@@ -3,7 +3,6 @@ import pandas as pd
 from time import gmtime, strftime
 from csv import writer
 from bs4 import BeautifulSoup
-from csv import writer
 import re
 
 #########################################################################################################
